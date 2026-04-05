@@ -136,10 +136,11 @@
 }
 
 .carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.08);
   background: rgba(94, 234, 212, 0.15);
   border-color: var(--accentColor);
   color: var(--accentColor);
-  box-shadow: 0 0 20px rgba(94, 234, 212, 0.15);
+  box-shadow: 0 0 24px rgba(94, 234, 212, 0.2);
 }
 
 .carousel-arrow-left {
@@ -170,8 +171,10 @@
 }
 
 .carousel-dot:hover {
+  transform: scale(1.2);
   border-color: var(--accentColor);
   background: rgba(94, 234, 212, 0.2);
+  box-shadow: 0 0 12px rgba(94, 234, 212, 0.2);
 }
 
 .carousel-dot-active {
@@ -182,13 +185,56 @@
 
 /* ── Work Image (reused) ── */
 .work-image {
+  perspective: 1400px;
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
 .work-image-in {
+  --tilt-rotate-x: 0deg;
+  --tilt-rotate-y: 0deg;
+  --tilt-glow-x: 50%;
+  --tilt-glow-y: 50%;
   position: relative;
+  display: inline-flex;
+  border-radius: 14px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-rotate-x)) rotateY(var(--tilt-rotate-y)) translateZ(0);
+  transition: transform 0.28s ease, filter 0.28s ease;
+  will-change: transform;
+}
+
+.work-image-in::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at var(--tilt-glow-x) var(--tilt-glow-y), rgba(94, 234, 212, 0.26), transparent 28%),
+    linear-gradient(135deg, rgba(94, 234, 212, 0.18), rgba(255, 255, 255, 0.05), rgba(34, 211, 238, 0.18));
+  opacity: 0.4;
+  transition: opacity 0.28s ease, box-shadow 0.28s ease;
+  pointer-events: none;
+}
+
+.work-image-in::after {
+  content: "Preview";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(234, 229, 236, 0.82);
+  background: rgba(10, 14, 23, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.14);
+  pointer-events: none;
 }
 
 .work-link {
@@ -211,10 +257,17 @@
 
 .work-image a:hover {
   color: inherit;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.18));
+}
+
+.work-image a:hover::before {
+  opacity: 0.85;
+  box-shadow: 0 0 28px rgba(94, 234, 212, 0.14);
 }
 
 .work-image a:hover .work-link {
   opacity: 1;
+  transform: translateZ(32px) scale(1.04);
 }
 
 .work-image video {
@@ -230,7 +283,9 @@
 .work-image img {
   max-width: 100%;
   max-height: 400px;
-  border-radius: 8px;
+  border-radius: 12px;
+  transform: translateZ(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
 }
 
 /* ── Responsive ── */

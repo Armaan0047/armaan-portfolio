@@ -20,8 +20,6 @@ const setAnimations = (gltf: GLTF) => {
         const action = mixer?.clipAction(clip);
         action!.play();
         action!.timeScale = 1.2;
-      } else {
-        console.error(`Animation "${name}" not found`);
       }
     });
     let typingAction: THREE.AnimationAction | null = null;
@@ -91,7 +89,6 @@ const createBoneAction = (
 ): THREE.AnimationAction | null => {
   const AnimationClip = THREE.AnimationClip.findByName(gltf.animations, clip);
   if (!AnimationClip) {
-    console.error(`Animation "${clip}" not found in GLTF file.`);
     return null;
   }
 

@@ -8,17 +8,34 @@
   display: flex;
   place-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.loading-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.16) 82%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(135deg, rgba(45, 212, 191, 0.08), transparent 45%);
+  pointer-events: none;
 }
 
 .loading-button {
   padding: 20px 50px;
   border-radius: 100px;
-  background-color: #000;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   font-size: 18px;
   font-weight: 500;
   position: relative;
   z-index: 9;
+  isolation: isolate;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .loading-button::before {
@@ -39,6 +56,18 @@
 
 .loading-button:hover::before {
   opacity: 1;
+}
+
+.loading-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--loading-progress, 0%);
+  height: 3px;
+  background: linear-gradient(90deg, #5eead4, #22d3ee);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+  transition: width 0.18s linear;
 }
 
 .loading-clicked .loading-button::before {
@@ -127,6 +156,37 @@
   text-align: center;
   transition: 1s;
   max-width: var(--Lsize);
+}
+
+.loading-content2 span {
+  position: relative;
+  color: #dffdfa;
+  text-shadow:
+    -1px 0 rgba(255, 0, 128, 0.35),
+    1px 0 rgba(0, 240, 255, 0.4),
+    0 0 20px rgba(94, 234, 212, 0.25);
+  animation: loadingGlitch 2.6s steps(1) infinite;
+}
+
+.loading-content2 span::before,
+.loading-content2 span::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.loading-content2 span::before {
+  color: rgba(0, 240, 255, 0.85);
+  transform: translate(1px, -1px);
+  clip-path: inset(0 0 55% 0);
+}
+
+.loading-content2 span::after {
+  color: rgba(255, 77, 166, 0.75);
+  transform: translate(-1px, 1px);
+  clip-path: inset(48% 0 0 0);
 }
 
 .loading-clicked .loading-content2 {
@@ -246,6 +306,33 @@
 @keyframes blinkDone {
   to {
     opacity: 0;
+  }
+}
+
+@keyframes loadingGlitch {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  20% {
+    transform: translate3d(1px, 0, 0);
+  }
+
+  21% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  55% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  56% {
+    transform: translate3d(0, -1px, 0);
+  }
+
+  57% {
+    transform: translate3d(0, 1px, 0);
   }
 }
 

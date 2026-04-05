@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
@@ -79,7 +79,14 @@ const Loading = ({ percent }: { percent: number }) => {
         >
           <div className="loading-hover"></div>
 
-          <div className={`loading-button ${loaded && "loading-complete"}`}>
+          <div
+            className={`loading-button ${loaded && "loading-complete"}`}
+            style={
+              {
+                "--loading-progress": `${percent}%`,
+              } as CSSProperties
+            }
+          >
             <div className="loading-container">
               <div className="loading-content">
                 <div className="loading-content-in">
@@ -90,7 +97,9 @@ const Loading = ({ percent }: { percent: number }) => {
             </div>
 
             <div className="loading-content2">
-              <span>Welcome Mohd Armaan</span>
+              <span data-text="Initializing System...">
+                Initializing System...
+              </span>
             </div>
           </div>
         </div>

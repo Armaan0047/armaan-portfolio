@@ -1,33 +1,104 @@
-.cursor-main {
-  --size: 0px;
+.cursor-main,
+.cursor-trail {
   position: fixed;
-  top: calc(var(--size) / -2);
-  left: calc(var(--size) / -2);
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50px;
+  top: 0;
+  left: 0;
+  border-radius: 999px;
   pointer-events: none;
-  z-index: 99;
-  background-color: #e6c3ff;
-  box-shadow: 0px 0px 30px 0px rgb(175, 131, 255);
-  mix-blend-mode: difference;
-  transition: top 0.3s ease-out, left 0.3s ease-out, width 0.3s ease-out,
-    height 0.3s ease-out;
+  z-index: 10000;
+  opacity: 0;
+  transform: translate3d(-120px, -120px, 0);
+  transition:
+    opacity 0.24s ease,
+    width 0.32s ease,
+    height 0.32s ease,
+    box-shadow 0.32s ease,
+    background-color 0.32s ease,
+    border-color 0.32s ease,
+    filter 0.32s ease;
+  will-change: transform, opacity, width, height;
 }
-.cursor-icons {
-  top: 10px;
-  left: 10px;
-  height: calc(var(--cursorH) - 20px);
-  transition: all 0.5s ease-out, height 0.5s ease-in-out;
+
+.cursor-main {
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  margin-left: -9px;
+  border: 1px solid rgba(94, 234, 212, 0.95);
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.3), rgba(94, 234, 212, 0.08));
+  box-shadow:
+    0 0 16px rgba(94, 234, 212, 0.55),
+    0 0 30px rgba(56, 189, 248, 0.2);
+  animation: cursorGlow 3s ease-in-out infinite;
 }
-.cursor-disable {
-  --size: 0px;
+
+.cursor-trail {
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  margin-left: -22px;
+  border: 1px solid rgba(94, 234, 212, 0.22);
+  background: rgba(94, 234, 212, 0.03);
+  box-shadow: 0 0 30px rgba(94, 234, 212, 0.12);
 }
-@media only screen and (min-width: 600px) {
-  .cursor-main {
-    --size: 50px;
+
+.cursor-visible {
+  opacity: 1;
+}
+
+.cursor-hover {
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  margin-left: -28px;
+  border-color: rgba(94, 234, 212, 0.95);
+  background: rgba(94, 234, 212, 0.08);
+  box-shadow:
+    0 0 26px rgba(94, 234, 212, 0.42),
+    0 0 44px rgba(34, 211, 238, 0.18);
+}
+
+.cursor-trail.cursor-hover {
+  width: 78px;
+  height: 78px;
+  margin-top: -39px;
+  margin-left: -39px;
+}
+
+.cursor-icon-hover {
+  width: 74px;
+  height: 74px;
+  margin-top: -37px;
+  margin-left: -37px;
+}
+
+.cursor-trail.cursor-icon-hover {
+  width: 98px;
+  height: 98px;
+  margin-top: -49px;
+  margin-left: -49px;
+}
+
+@keyframes cursorGlow {
+  0%,
+  100% {
+    filter: saturate(1) brightness(1);
+    box-shadow:
+      0 0 16px rgba(94, 234, 212, 0.55),
+      0 0 30px rgba(56, 189, 248, 0.2);
   }
-  .cursor-disable {
-    --size: 0px;
+
+  50% {
+    filter: saturate(1.08) brightness(1.08);
+    box-shadow:
+      0 0 20px rgba(94, 234, 212, 0.7),
+      0 0 42px rgba(56, 189, 248, 0.28);
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-main,
+  .cursor-trail {
+    display: none;
   }
 }
