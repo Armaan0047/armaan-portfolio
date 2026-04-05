@@ -1,0 +1,26 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07090f"/>
+      <stop offset="100%" stop-color="#171b28"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#53f2d5"/>
+      <stop offset="100%" stop-color="#f6a341"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="56" y="56" width="1088" height="788" rx="28" fill="none" stroke="#2f374d" stroke-width="4"/>
+  <path d="M120 690C250 640 350 640 470 690C600 742 704 742 820 690C926 646 1008 636 1080 652" fill="none" stroke="#4c556f" stroke-width="18" stroke-linecap="round"/>
+  <path d="M155 642L1025 642" stroke="#65708f" stroke-width="6" stroke-dasharray="18 18"/>
+  <ellipse cx="595" cy="688" rx="132" ry="58" fill="#020304" stroke="#f6a341" stroke-width="8"/>
+  <ellipse cx="595" cy="688" rx="94" ry="34" fill="#0d111b"/>
+  <circle cx="336" cy="430" r="86" fill="#11182a" stroke="#53f2d5" stroke-width="8"/>
+  <path d="M336 370L336 432L378 474" fill="none" stroke="#53f2d5" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="862" cy="382" r="80" fill="#11182a" stroke="#f6a341" stroke-width="8"/>
+  <path d="M812 382H912M862 332V432" stroke="#f6a341" stroke-width="14" stroke-linecap="round"/>
+  <rect x="470" y="180" width="262" height="122" rx="18" fill="#0d1320" stroke="url(#accent)" stroke-width="5"/>
+  <text x="601" y="227" fill="#eef3ff" font-size="34" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700">SMART POTHOLE</text>
+  <text x="601" y="268" fill="#c8d3ea" font-size="30" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">DETECTION SYSTEM</text>
+  <text x="130" y="790" fill="#c8d3ea" font-size="34" font-family="Arial, Helvetica, sans-serif">Sensors + live data + automated reporting</text>
+</svg>
