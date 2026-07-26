@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohd. Armaan Tak — Software Developer Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      color: #000000;
+      background: #ffffff;
+      font-size: 10px;
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      padding: 14mm 14mm 12mm 14mm;
+      overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+      border-bottom: 2.5px solid #000000;
+      padding-bottom: 8px;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .header .contact-line {
+      font-size: 10px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .header .links-line {
+      font-size: 9.5px;
+    }
+
+    .header .links-line a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid #000;
+      margin: 0 4px;
+    }
+
+    .header .links-line a:hover {
+      color: #0066cc;
+      border-color: #0066cc;
+    }
+
+    .header .links-line .sep {
+      color: #999;
+      margin: 0 2px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-bottom: 1.5px solid #000000;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* ── SUMMARY ── */
+    .summary p {
+      font-size: 9.5px;
+      line-height: 1.45;
+      color: #222;
+      text-align: justify;
+    }
+
+    /* ── SKILLS TABLE ── */
+    .skills-grid {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .skills-grid tr {
+      border-bottom: 0.5px solid #e0e0e0;
+    }
+
+    .skills-grid tr:last-child {
+      border-bottom: none;
+    }
+
+    .skills-grid td {
+      padding: 2.5px 0;
+      vertical-align: top;
+      font-size: 9.5px;
+    }
+
+    .skills-grid .skill-cat {
+      width: 150px;
+      font-weight: 700;
+      color: #000;
+      padding-right: 10px;
+    }
+
+    .skills-grid .skill-list {
+      color: #222;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      margin-bottom: 7px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .exp-header .role {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .exp-header .date {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    .exp-item ul {
+      margin-top: 2px;
+      padding-left: 14px;
+    }
+
+    .exp-item li {
+      font-size: 9.5px;
+      color: #222;
+      margin-bottom: 1.5px;
+      line-height: 1.4;
+    }
+
+    .exp-item li::marker {
+      color: #000;
+    }
+
+    /* ── PROJECTS ── */
+    .proj-item {
+      margin-bottom: 6px;
+    }
+
+    .proj-item .proj-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #000;
+      display: inline;
+    }
+
+    .proj-item .proj-title a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .proj-item .proj-title a:hover {
+      color: #0066cc;
+      border-color: #0066cc;
+    }
+
+    .proj-item .proj-brand {
+      font-size: 9.5px;
+      color: #555;
+      font-style: italic;
+    }
+
+    .proj-item ul {
+      margin-top: 2px;
+      padding-left: 14px;
+    }
+
+    .proj-item li {
+      font-size: 9.5px;
+      color: #222;
+      margin-bottom: 1px;
+      line-height: 1.35;
+    }
+
+    .proj-item .tech-stack {
+      font-size: 9px;
+      color: #333;
+      margin-top: 2px;
+      padding-left: 14px;
+    }
+
+    .proj-item .tech-stack strong {
+      color: #000;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      margin-bottom: 4px;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-header .degree {
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .edu-header .year {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .edu-college {
+      font-size: 9.5px;
+      color: #333;
+    }
+
+    /* ── CERTIFICATES ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 12px;
+    }
+
+    .cert-item {
+      font-size: 9.5px;
+      color: #222;
+    }
+
+    .cert-item strong {
+      color: #000;
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      body {
+        background: white;
+      }
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+      a {
+        color: #000 !important;
+      }
+    }
+
+    /* ── SCREEN HELPERS ── */
+    @media screen {
+      body {
+        background: #e8e8e8;
+        padding: 20px 0;
+      }
+      .page {
+        background: white;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="header">
+      <h1>Mohd. Armaan Tak</h1>
+      <div class="contact-line">
+        +91 6375803498 | takarmaan3@gmail.com
+      </div>
+      <div class="links-line">
+        <a href="https://www.linkedin.com/in/mohd-armaan-tak-b5628a380/" target="_blank">LinkedIn</a>
+        <span class="sep">|</span>
+        <a href="https://github.com/Armaan0047" target="_blank">GitHub</a>
+        <span class="sep">|</span>
+        <a href="https://leetcode.com/u/4i5WHxc8kP/" target="_blank">LeetCode</a>
+        <span class="sep">|</span>
+        <a href="https://codewitharmaan.netlify.app" target="_blank">Portfolio</a>
+      </div>
+    </header>
+
+    <!-- ═══════════════ PROFESSIONAL SUMMARY ═══════════════ -->
+    <section class="section summary">
+      <div class="section-title">Professional Summary</div>
+      <p>
+        Computer Engineering student and passionate Software Developer based in Jaipur, India. Dedicated to transforming innovative ideas into practical digital products by building modern web applications, AI-powered solutions, and scalable software systems. Experienced in full-stack web development, AI API integration, desktop applications, and offline-first PWAs with clean architecture and problem-solving skills.
+      </p>
+    </section>
+
+    <!-- ═══════════════ TECHNICAL SKILLS ═══════════════ -->
+    <section class="section">
+      <div class="section-title">Technical Skills</div>
+      <table class="skills-grid">
+        <tr>
+          <td class="skill-cat">Frontend</td>
+          <td class="skill-list">HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Framer Motion</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Backend</td>
+          <td class="skill-list">Node.js, Express.js, REST APIs</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Databases</td>
+          <td class="skill-list">Supabase, MongoDB, Firebase, MySQL</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Languages</td>
+          <td class="skill-list">C, C++, Python, JavaScript</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Tools</td>
+          <td class="skill-list">Git, GitHub, VS Code, Vercel, Netlify, Postman, Figma</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">AI &amp; Frameworks</td>
+          <td class="skill-list">OpenAI, Gemini, Claude, ChatGPT, Antigravity</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+    <section class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="role">Software Development Intern — SkillCraft Technology</span>
+          <span class="date">June 2026 — July 2026</span>
+        </div>
+        <ul>
+          <li>Completed a project-based Software Development Internship focused on strengthening programming fundamentals, application development, debugging, data handling, and problem-solving skills.</li>
+          <li>Successfully developed practical software projects including a <strong>Temperature Converter</strong>, <strong>Number Guessing Game</strong>, <strong>Sudoku Solver</strong>, and <strong>Product Data Scraper</strong>.</li>
+          <li>Gained hands-on experience in writing clean, maintainable code while following industry-standard software development practices.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PROJECTS ═══════════════ -->
+    <section class="section">
+      <div class="section-title">Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-title"><a href="https://codewitharmaan.netlify.app" target="_blank">AI Reel Generator</a></div>
+        <ul>
+          <li>Built an AI-powered reel generation platform that transforms text prompts into engaging short-form video content.</li>
+          <li>Focuses on automation, seamless user experience, and efficient AI API integration for content creation workflows.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech Stack:</strong> React, Next.js, TypeScript, Tailwind CSS, AI APIs &nbsp;|&nbsp; <a href="https://github.com/Armaan0047/reel-engine" target="_blank">GitHub</a> &nbsp;|&nbsp; <a href="https://codewitharmaan.netlify.app" target="_blank">Live Site</a></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">NEXUS</div>
+        <span class="proj-brand"> — Currently in Development</span>
+        <ul>
+          <li>Architected an intelligent desktop AI companion designed to understand user context and assist with real-time productivity.</li>
+          <li>Features a modular architecture with context awareness, plugin support, and scalable desktop application design.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech Stack:</strong> Electron, React, Next.js, TypeScript, Node.js, AI</div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title"><a href="https://sonskynsales.live" target="_blank">Sonskyn</a></div>
+        <span class="proj-brand"> — Private Repository</span>
+        <ul>
+          <li>Developed an offline-first Progressive Web Application for pharmaceutical field representatives to manage daily call reports, doctor lists, tour planning, expenses, and follow-ups.</li>
+          <li>Engineered for high performance, reliability, and seamless offline data synchronization using Supabase.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech Stack:</strong> Next.js, TypeScript, Supabase, Tailwind CSS, PWA &nbsp;|&nbsp; <a href="https://sonskynsales.live" target="_blank">Live App</a></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title"><a href="https://github.com/Armaan0047/C-Plus-Plus-Practice" target="_blank">C++ Practice</a></div>
+        <ul>
+          <li>Curated a collection of C++ programming exercises and Data Structures &amp; Algorithms implementations for problem solving.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech Stack:</strong> C++, Data Structures, Algorithms &nbsp;|&nbsp; <a href="https://github.com/Armaan0047/C-Plus-Plus-Practice" target="_blank">GitHub Repository</a></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ EDUCATION ═══════════════ -->
+    <section class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="degree">B.Tech in Computer Engineering</span>
+          <span class="year">Expected Graduation: 2029</span>
+        </div>
+        <div class="edu-college">Poornima Institute of Engineering &amp; Technology</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="degree">Higher Secondary Education (12th)</span>
+          <span class="year">75%</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="degree">Secondary Education (10th)</span>
+          <span class="year">85%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CERTIFICATES ═══════════════ -->
+    <section class="section">
+      <div class="section-title">Certificates</div>
+      <div class="cert-grid">
+        <div class="cert-item"><strong>Advanced Software Engineering Simulation</strong> — Walmart Global Tech (Forage)</div>
+        <div class="cert-item"><strong>Google Cloud Career Launchpad (Data Analytics)</strong> — Google Cloud</div>
+        <div class="cert-item"><strong>Professional Networking for Career Growth</strong> — HP LIFE Foundation</div>
+        <div class="cert-item"><strong>Software Development Internship</strong> — SkillCraft Technology</div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

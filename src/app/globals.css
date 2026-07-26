@@ -1,0 +1,625 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme {
+  --color-primary: #00ff66;
+  --color-bg: #0f0f0f;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Hide the "Built with Spline" watermark */
+#logo {
+  display: none !important;
+}
+
+@keyframes logo-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-logo-marquee {
+  animation: logo-marquee 40s linear infinite;
+}
+.animate-logo-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+.animate-marquee-wave {
+  animation: marquee-wave 3s ease-in-out infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.marquee-label {
+  -webkit-text-stroke: 0.5px black;
+}
+:where(.dark, .dark *) .marquee-label {
+  -webkit-text-stroke: 0.5px white;
+}
+
+/* Custom CSS Sports Car */
+@keyframes drive-car {
+  0% { transform: translateX(-15vw); }
+  100% { transform: translateX(110vw); }
+}
+
+@keyframes spin-wheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes car-bump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.5px); }
+}
+
+@keyframes smoke-fade {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  100% { transform: translate(-30px, -15px) scale(3); opacity: 0; }
+}
+
+.mini-car {
+  position: relative;
+  animation: car-bump 0.4s ease-in-out infinite;
+}
+
+/* Base Cabin */
+.mini-car::before {
+  content: '';
+  position: absolute;
+  background: inherit;
+}
+
+/* Base Windows */
+.mini-car::after {
+  content: '';
+  position: absolute;
+  background: #111;
+}
+
+/* --- CAR 1: Green Speedster --- */
+.mini-car-1 {
+  width: 60px;
+  height: 14px;
+  background: linear-gradient(to bottom, #00ff66, #00cc52);
+  border-radius: 4px 18px 6px 3px; 
+  box-shadow: 0 0 15px rgba(0,255,102,0.7);
+}
+.mini-car-1::before {
+  top: -8px; left: 22px; width: 20px; height: 8px; border-radius: 4px 14px 0 0;
+}
+.mini-car-1::after {
+  top: -6px; left: 24px; width: 14px; height: 6px; border-radius: 2px 10px 0 0;
+}
+.mini-car-1 .car-spoiler {
+  position: absolute; top: -6px; left: 0px; width: 8px; height: 2px;
+  background: #00ff66; border-left: 2px solid #111; transform: rotate(-10deg);
+}
+.mini-car-1 .car-wheel { border-color: #00ff66; }
+
+
+/* --- CAR 2: Purple Hypercar --- */
+.mini-car-2 {
+  width: 68px;
+  height: 11px;
+  background: linear-gradient(to bottom, #ff00ff, #cc00cc);
+  border-radius: 2px 25px 4px 2px; 
+  box-shadow: 0 0 15px rgba(255,0,255,0.7);
+}
+.mini-car-2::before {
+  top: -6px; left: 28px; width: 22px; height: 6px; border-radius: 6px 15px 0 0;
+}
+.mini-car-2::after {
+  top: -4px; left: 30px; width: 16px; height: 4px; border-radius: 2px 10px 0 0;
+}
+.mini-car-2 .car-spoiler {
+  position: absolute; top: -4px; left: -2px; width: 12px; height: 1px;
+  background: #ff00ff; border-left: 1px solid #111; transform: rotate(-5deg);
+}
+.mini-car-2 .car-wheel { border-color: #ff00ff; width: 14px; height: 14px; bottom: -5px; animation-duration: 0.25s;}
+.mini-car-2 .wheel-front { right: 10px; }
+
+
+/* --- CAR 3: Cyan Muscle Car --- */
+.mini-car-3 {
+  width: 52px;
+  height: 16px;
+  background: linear-gradient(to bottom, #00ffff, #00cccc);
+  border-radius: 2px 6px 4px 2px; 
+  box-shadow: 0 0 15px rgba(0,255,255,0.7);
+}
+.mini-car-3::before {
+  top: -12px; left: 12px; width: 24px; height: 12px; border-radius: 4px 6px 0 0;
+}
+.mini-car-3::after {
+  top: -10px; left: 14px; width: 16px; height: 8px; border-radius: 2px 4px 0 0;
+}
+.mini-car-3 .car-spoiler {
+  position: absolute; top: -8px; left: 0px; width: 4px; height: 12px;
+  background: #00ffff; border-bottom: 2px solid #111; transform: rotate(-25deg);
+}
+.mini-car-3 .car-wheel { border-color: #00ffff; width: 18px; height: 18px; bottom: -7px; animation-duration: 0.4s;}
+
+
+/* --- CAR 4: Orange Hot Rod --- */
+.mini-car-4 {
+  width: 58px;
+  height: 15px;
+  background: linear-gradient(to bottom, #ff5500, #cc2200);
+  border-radius: 6px 12px 2px 2px; 
+  box-shadow: 0 0 15px rgba(255,85,0,0.7);
+}
+.mini-car-4::before {
+  top: -10px; left: 18px; width: 20px; height: 10px; border-radius: 6px 10px 0 0;
+}
+.mini-car-4::after {
+  top: -8px; left: 20px; width: 12px; height: 8px; border-radius: 4px 6px 0 0;
+}
+.mini-car-4 .car-spoiler { /* Repurposed as front engine blower */
+  position: absolute; top: -4px; right: 8px; left: auto; width: 8px; height: 4px;
+  background: #ddd; border-bottom: none; border-radius: 2px 2px 0 0; transform: none;
+}
+.mini-car-4 .car-wheel { border-color: #ff5500; width: 15px; height: 15px; bottom: -6px; animation-duration: 0.35s;}
+
+
+/* --- Shared Wheel & Smoke --- */
+.car-wheel {
+  width: 16px; 
+  height: 16px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px;
+  border: 2px dashed; /* color inherited from parent overrides */
+  animation: spin-wheel 0.3s linear infinite; 
+  box-sizing: border-box;
+}
+
+.wheel-front { right: 8px; }
+.wheel-back { left: 8px; }
+
+/* Smoke */
+.car-smoke {
+  position: absolute;
+  left: -8px;
+  bottom: 2px;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: smoke-fade 0.8s linear infinite;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.car-smoke-2 {
+  animation-delay: 0.3s;
+  width: 6px;
+  height: 6px;
+  left: -10px;
+  bottom: 0px;
+}
+
+.car-smoke-3 {
+  animation-delay: 0.6s;
+  width: 5px;
+  height: 5px;
+  left: -12px;
+}
+
+/* The central dashed race track */
+.main-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 200%; /* Wider than screen so it can loop */
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffffff 0px,
+    #ffffff 80px,
+    transparent 80px,
+    transparent 160px
+  );
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 12px #ffffff);
+  /* Creates the illusion of the car moving extremely fast */
+  animation: moveTrack 0.3s linear infinite;
+}
+
+@keyframes moveTrack {
+  0% { transform: translateY(-50%) translateX(0); }
+  100% { transform: translateY(-50%) translateX(-160px); } /* Matches the gradient size perfectly */
+}
+
+/* Colorful GSAP speed lines */
+.speed-line {
+  position: absolute;
+  height: 2px;
+  border-radius: 2px;
+  opacity: 0; /* Handled dynamically by GSAP */
+}
+.sl-1 { top: 30%; width: 150px; background: #00ffff; box-shadow: 0 0 10px #00ffff; }
+.sl-2 { top: 70%; width: 300px; background: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
+.sl-3 { top: 40%; width: 80px;  background: #ffcc00; box-shadow: 0 0 10px #ffcc00; }
+.sl-4 { top: 60%; width: 250px; background: #00ff66; box-shadow: 0 0 10px #00ff66; }
+.sl-5 { top: 45%; width: 120px; background: #ff0055; box-shadow: 0 0 10px #ff0055; }
+.sl-6 { top: 55%; width: 180px; background: #9d00ff; box-shadow: 0 0 10px #9d00ff; }
+
+/* The Car Container */
+.car-container {
+  position: absolute;
+  top: 0;
+  left: -500px; 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Make the F1 car look premium and integrated with shadows */
+.f1-car {
+  z-index: 2;
+  filter: drop-shadow(0px 25px 20px rgba(0, 0, 0, 0.9));
+}
+
+/* === MOBILE RESPONSIVENESS === */
+@media (max-width: 768px) {
+  /* Make the main track lines thinner and shorter */
+  .main-track {
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      #ffffff 0px,
+      #ffffff 40px,
+      transparent 40px,
+      transparent 80px
+    );
+  }
+
+  /* Make speed lines smaller */
+  .speed-line {
+    transform: scale(0.5);
+  }
+
+  /* Make smoke smaller to fit the smaller car */
+  .smoke {
+    width: 15px !important;
+    height: 15px !important;
+    left: -10px !important;
+  }
+}
+
+/* === HERO ENGINEERING GRID === */
+/* Creates a subtle blueprint/engineering grid pattern */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.15) 1px, transparent 1.2px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+/* Adjust grid color for dark mode to use white lines */
+.dark .grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Realistic CSS Smoke Cloud */
+.smoke {
+  position: absolute;
+  top: 50%; 
+  left: -20px;
+  width: 30px; 
+  height: 30px;
+
+  /* Create a gaseous center using a gradient */
+  background: radial-gradient(circle, rgba(200,200,200, 0.9) 0%, rgba(150,150,150, 0.5) 50%, transparent 80%);
+  border-radius: 50%;
+
+  /* Use box-shadow to create irregular, clumpy cloud shapes without extra HTML */
+  box-shadow: 
+    15px -10px 20px rgba(180,180,180,0.7),
+    -15px 15px 25px rgba(160,160,160,0.6),
+    0px 20px 15px rgba(190,190,190,0.8);
+
+  filter: blur(10px); /* Blend the gradient and shadows together */
+  opacity: 0;
+  z-index: 1;
+  animation: blowSmoke 1.5s infinite ease-out;
+}
+
+/* Stagger the smoke puffs */
+.smoke:nth-child(1) { animation-delay: 0s; }
+.smoke:nth-child(2) { animation-delay: 0.3s; }
+.smoke:nth-child(3) { animation-delay: 0.6s; }
+.smoke:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes blowSmoke {
+  0% {
+    /* Starts small, tight, and not rotated */
+    transform: translate(0, -50%) scale(0.3) rotate(0deg);
+    opacity: 0.9; 
+  }
+  100% {
+    /* Travels far back, expands massively, and rotates for a realistic rolling smoke effect */
+    transform: translate(-350px, -50%) scale(4) rotate(45deg); 
+    opacity: 0;
+  }
+}
+
+/* 3D Wireframe Text Effect */
+.text-wireframe {
+  --mesh-color: rgba(0, 0, 0, 0.3);
+  --stroke-color: #000000;
+  color: transparent !important;
+  -webkit-text-stroke: 2px var(--stroke-color);
+  background-image:
+    linear-gradient(45deg, var(--mesh-color) 1px, transparent 1px),
+    linear-gradient(-45deg, var(--mesh-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mesh-color) 1px, transparent 1px),
+    linear-gradient(0deg, var(--mesh-color) 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  /* Stack 3D shadow */
+  text-shadow: 
+    1px 1px 0px var(--stroke-color),
+    2px 2px 0px var(--stroke-color),
+    3px 3px 0px var(--stroke-color),
+    4px 4px 0px var(--stroke-color),
+    5px 5px 0px var(--stroke-color),
+    6px 6px 0px var(--stroke-color);
+}
+
+.text-wireframe-sm {
+  --mesh-color: rgba(0, 0, 0, 0.25);
+  --stroke-color: #000000;
+  color: transparent !important;
+  -webkit-text-stroke: 1.2px var(--stroke-color);
+  background-image:
+    linear-gradient(45deg, var(--mesh-color) 0.8px, transparent 0.8px),
+    linear-gradient(-45deg, var(--mesh-color) 0.8px, transparent 0.8px),
+    linear-gradient(90deg, var(--mesh-color) 0.8px, transparent 0.8px);
+  background-size: 8px 8px;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  /* Small 3D shadow */
+  text-shadow: 
+    1px 1px 0px var(--stroke-color),
+    2px 2px 0px var(--stroke-color),
+    3px 3px 0px var(--stroke-color);
+}
+
+.dark .text-wireframe {
+  --mesh-color: rgba(255, 255, 255, 0.35);
+  --stroke-color: #ffffff;
+}
+
+.dark .text-wireframe-sm {
+  --mesh-color: rgba(255, 255, 255, 0.3);
+  --stroke-color: #ffffff;
+}
+
+@theme inline {
+  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-inter);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Shiny text variables for About section */
+.about-shiny-text {
+  --shiny-base: rgba(0, 0, 0, 0.25); /* Light grey base so the black shine stands out */
+  --shiny-shine: rgba(0, 0, 0, 1);  /* Solid black shine */
+}
+.dark .about-shiny-text {
+  --shiny-base: rgba(255, 255, 255, 0.3); /* Dimmed white in dark mode */
+  --shiny-shine: rgba(255, 255, 255, 1);
+}
+
+/* Border Beam Animation */
+@keyframes border-beam {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+.animate-border-beam {
+  animation: border-beam var(--duration, 15s) infinite linear;
+}
+
+/* Glowing Card Variables */
+.glowing-card-wrapper {
+  --glow-color: var(--glow-color-dark);
+}
+
+/* Unfilled Text Outline Effect */
+.text-outline {
+  -webkit-text-stroke: 1px #000000; /* black in light mode */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.dark .text-outline {
+  -webkit-text-stroke: 1px #00ff66; /* neon green */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ThreeDCarousel Styles */
+.border-text {
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+.dark .border-text {
+  -webkit-text-stroke: 1px white;
+}
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
